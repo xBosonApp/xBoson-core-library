@@ -3,3 +3,4 @@
 *.7z
 *.jar
 copy-from.cmd
+target/dependency/*.pom
