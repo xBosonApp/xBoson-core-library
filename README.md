@@ -6,6 +6,8 @@
 2. 库版本冲突, 需要人工调整.
 3. 库升级失败后进行回滚.
 
+该项目由 [上海竹呗信息技术有限公司](https://xboson.net/) 提供技术支持.
+
 
 ## 注意
 
@@ -28,3 +30,8 @@ hadoop 必须用 hadoop-common-3.1.3-with-dependencies.jar 否则报错: No File
 ## TODO
 
 下载文件后部署在正确的目录.
+
+
+## 其他
+
+* [xBoson平台运算核心](https://github.com/yanmingsohu/xBoson-core)
