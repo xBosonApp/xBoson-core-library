@@ -1,0 +1,6 @@
+total 7844
+-rw-r--r-- 1 root 197121       0 2月  15 11:19 filelist.txt
+-rw-r--r-- 1 root 197121 1535071 9月   4  2020 inspur11-jdbc.jar
+-rw-r--r-- 1 root 197121 2576908 9月   4  2020 mpp-connector-java-8.3.81.51-build-53.2-bin.jar
+-rw-r--r-- 1 root 197121 3698892 12月  3  2021 ojdbc7.jar
+-rw-r--r-- 1 root 197121  209279 9月   4  2020 xBoson-crypto.jar

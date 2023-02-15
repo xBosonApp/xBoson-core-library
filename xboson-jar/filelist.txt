@@ -1,0 +1,9 @@
+total 7676
+-rw-r--r-- 1 root 197121       0 2月  15 11:19 filelist.txt
+-rw-r--r-- 1 root 197121 3426542 9月   4  2020 jetty-all-9.4.14.v20181114-editor.jar
+-rw-r--r-- 1 root 197121   61763 9月   4  2020 jsp-api.jar
+-rw-r--r-- 1 root 197121 2798791 9月   4  2020 org.eclipse.jdt.ecj-3.14.0.jar
+-rw-r--r-- 1 root 197121   21496 9月   4  2020 org.eclipse.jetty.apache-jsp-9.4.14.v20181114.jar
+-rw-r--r-- 1 root 197121  249269 9月   4  2020 org.mortbay.jasper.apache-el-8.5.33.1.jar
+-rw-r--r-- 1 root 197121 1009786 9月   4  2020 org.mortbay.jasper.apache-jsp-8.5.33.1.jar
+-rw-r--r-- 1 root 197121  277812 9月   4  2020 servlet-api.jar

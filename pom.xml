@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.xBoson.PAAS</groupId>
+  <artifactId>PAASlib</artifactId>
+  <version>1.0</version>
+
+  <name>PAASlib</name>
+  <url>http://xboson.net</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <jetty.version>9.3.20.v20170531</jetty.version>
+  </properties>
+
+  <dependencies>
+    <!-- 软件授权许可, 伪装 -->
+    <dependency> 
+      <groupId>com.xBoson.PAAS</groupId>
+      <artifactId>bpom-cell</artifactId>
+      <version>1.1.3</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/local-jar/xBoson-crypto.jar</systemPath>
+    </dependency>
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- 解析/封装 JSON -->
+    <dependency>
+      <groupId>com.squareup.moshi</groupId>
+      <artifactId>moshi</artifactId>
+      <version>1.11.0</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.squareup.moshi</groupId>
+      <artifactId>moshi-kotlin</artifactId>
+      <version>1.5.0</version>
+    </dependency>
+    
+    <!-- 控制台颜色输出 -->
+    <dependency>
+      <groupId>org.fusesource.jansi</groupId>
+      <artifactId>jansi</artifactId>
+      <version>1.16</version>
+    </dependency>
+    
+    <!-- Redis 客户端 -->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    
+    <!-- 连接池底层, 明确 2.4.3 -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-pool2</artifactId>
+      <version>2.4.3</version>
+    </dependency>
+
+    
+    <!-- 数据库驱动 -->
+    <!-- 华三数据库(mpp-connector-java) -->
+    <dependency> 
+      <groupId>com.xBoson.PAAS</groupId>
+      <artifactId>mpp-connector-java</artifactId>
+      <version>8.3.81.51-build-53.2-bin</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/local-jar/mpp-connector-java-8.3.81.51-build-53.2-bin.jar</systemPath>
+    </dependency>
+    
+    <!-- 浪潮数据库(inspur11-jdbc) -->
+    <dependency> 
+      <groupId>com.xBoson.PAAS</groupId>
+      <artifactId>inspur</artifactId>
+      <version>11-jdbc</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/local-jar/inspur11-jdbc.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.44</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.ibm.db2.jcc</groupId>
+      <artifactId>db2jcc</artifactId>
+      <version>db2jcc4</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <version>6.2.2.jre8</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.github.noraui</groupId>
+      <artifactId>ojdbc7</artifactId>
+      <version>12.1.0.2</version>
+      <scope>system</scope>
+      <!-- 驱动文件不在 mvn 存储库中 -->
+      <systemPath>${project.basedir}/local-jar/ojdbc7.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.196</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.5</version>
+      <!--<type>bundle</type>-->
+    </dependency>
+    
+    <dependency>
+      <groupId>org.elasticsearch.plugin</groupId>
+      <artifactId>x-pack-sql-jdbc</artifactId>
+      <version>7.12.1</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.neo4j.driver</groupId>
+      <artifactId>neo4j-java-driver</artifactId>
+      <version>4.2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.datastax.cassandra</groupId>
+      <artifactId>cassandra-driver-core</artifactId>
+      <version>3.11.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.hive</groupId>
+      <artifactId>hive-jdbc</artifactId>
+      <version>3.1.2</version>
+    </dependency>
+    
+    <!-- XML 转换 -->
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>1.4.14</version>
+    </dependency>
+    
+    <!-- CSV 转换 -->
+    <dependency>
+      <groupId>net.sf.supercsv</groupId>
+      <artifactId>super-csv</artifactId>
+      <version>2.4.0</version>
+    </dependency>
+    
+    <!-- HTTP 客户端 -->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>3.9.1</version>
+    </dependency>
+    
+    <!-- mongodb-driver -->
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongodb-driver</artifactId>
+      <version>3.6.1</version>
+    </dependency>
+
+    <!-- Microsoft Excel 报表 -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.17</version>
+    </dependency>
+    
+    <!-- YAML 转换 -->
+    <dependency>
+      <groupId>com.esotericsoftware.yamlbeans</groupId>
+      <artifactId>yamlbeans</artifactId>
+      <version>1.13</version>
+    </dependency>
+    
+    <!-- Hyperledger-Fabric 区块链 -->
+    <dependency>
+      <groupId>org.hyperledger.fabric-sdk-java</groupId>
+      <artifactId>fabric-sdk-java</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+    
+    <!-- 文件上传解析 -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.3</version>
+    </dependency>
+    
+    <!-- WebService 组件 -->
+    <dependency>
+      <groupId>wsdl4j</groupId>
+      <artifactId>wsdl4j</artifactId>
+      <version>1.6.3</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>wsdl4j</groupId>
+      <artifactId>wsdl4j-qname</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+
+    <!-- MapDB 存储区块的数据库 -->
+    <dependency>
+      <groupId>org.mapdb</groupId>
+      <artifactId>mapdb</artifactId>
+      <version>3.0.8</version>
+      <!--<type>bundle</type>-->
+    </dependency>
+    
+    <!-- UPnP 支持 -->
+    <dependency>
+      <groupId>org.bitlet</groupId>
+      <artifactId>weupnp</artifactId>
+      <version>0.1.4</version>
+      <!--<type>bundle</type>-->
+    </dependency>
+    
+    <!-- Docker 客户端 -->
+    <dependency>
+      <groupId>com.spotify</groupId>
+      <artifactId>docker-client</artifactId>
+      <version>8.14.5</version>
+    </dependency>
+    
+    <!-- Hadoop 驱动 -->
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>3.1.3</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-hdfs</artifactId>
+        <version>3.1.3</version>
+    </dependency>
+    
+    <!-- 线性代数计算 -->
+    <dependency>
+      <groupId>org.jblas</groupId>
+      <artifactId>jblas</artifactId>
+      <version>1.2.5</version>
+    </dependency>
+    
+    <!-- SM 2,3,4 加密, 例子: https://github.com/ZZMarquis/gmhelper -->
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk15on</artifactId>
+      <version>1.66</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcpkix-jdk15on</artifactId>
+      <version>1.66</version>
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket -->
+    <dependency>
+        <groupId>org.java-websocket</groupId>
+        <artifactId>Java-WebSocket</artifactId>
+        <version>1.5.2</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.eclipse.paho</groupId>
+        <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+        <version>1.2.5</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>javax.servlet.jsp</groupId>
+        <artifactId>javax.servlet.jsp-api</artifactId>
+        <version>2.3.1</version>
+        <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>4.0.1</version>
+        <scope>provided</scope>
+    </dependency>
+    
+    <!-- 作为 App 脱离 servlet 容器运行, jetty* 组件必须版本一致, 否则无法启动 -->
+    <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-server</artifactId>
+        <version>${jetty.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-client</artifactId>
+        <version>${jetty.version}</version>
+    </dependency>
+    <dependency>
+    <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-webapp</artifactId>
+        <version>${jetty.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-runner</artifactId>
+        <version>${jetty.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-servlet</artifactId>
+        <version>${jetty.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-rewrite</artifactId>
+        <version>${jetty.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-util</artifactId>
+        <version>${jetty.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-util-ajax</artifactId>
+        <version>${jetty.version}</version>
+    </dependency>
+
+  </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <dependency> 
+        <!-- 修复 org.apache.hive:hive-jdbc:3.1.2 依赖不存在的包: 
+              org.glassfish:javax.el:jar:3.0.1-b06-SNAPSHOT -->
+        <groupId>org.glassfish</groupId>
+        <artifactId>javax.el</artifactId>
+        <version>3.0.1-b12</version>
+      </dependency>
+      
+      <dependency>
+        <!-- 修复 hive 导致降级的问题 -->
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>30.1.1-jre</version>
+      </dependency>
+
+      <dependency>
+        <!-- 修复 hive 导致降级的问题 -->
+        <groupId>org.apache.zookeeper</groupId>
+        <artifactId>zookeeper</artifactId>
+        <version>3.7.0</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.7.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>4.2.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+  <repositories>
+    <repository>
+      <id>mvnrepository</id>
+      <name>mvnrepository</name>
+      <url>https://mvnrepository.com/repos/redhat-ga</url>
+    </repository>
+  </repositories>
+  
+</project>

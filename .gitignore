@@ -1,0 +1,5 @@
+.DS_Store
+.git-old-remove
+*.7z
+*.jar
+copy-from.cmd
